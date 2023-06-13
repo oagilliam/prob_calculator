@@ -7,3 +7,9 @@
 
 #For this project, you will write a program to determine the approximate probability 
 #of drawing certain balls randomly from a hat.
+
+class Hat:
+    def __init__(self, **contents):
+        return contents
+
+hat1 = Hat(yellow=3, blue=2, green=6)
