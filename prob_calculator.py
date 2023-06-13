@@ -10,6 +10,10 @@
 
 class Hat:
     def __init__(self, **contents):
-        return contents
+        ball_list = []
+        for key, value in contents.items():
+            if value > 0:
+                ball_list += ([key] * value)
+        print(ball_list)
 
-hat1 = Hat(yellow=3, blue=2, green=6)
+hat1 = Hat(yellow=5, blue=4, green=3)
