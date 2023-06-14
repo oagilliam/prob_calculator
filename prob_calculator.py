@@ -9,11 +9,14 @@
 #of drawing certain balls randomly from a hat.
 
 class Hat:
-    def __init__(self, **contents):
-        ball_list = []
-        for key, value in contents.items():
+    def __init__(self,**balls):
+        self.contents = []
+        for key, value in balls.items():
             if value > 0:
-                ball_list += ([key] * value)
-        print(ball_list)
+                self.contents += ([key] * value)
+        print(self.contents)
+
+    #def draw(self, contents):
+
 
 hat1 = Hat(yellow=5, blue=4, green=3)
