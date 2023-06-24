@@ -15,13 +15,17 @@ class Hat:
         for key, value in balls.items():
             if value > 0:
                 self.contents += ([key] * value)
-        print(self.contents)
+        print(self.contents) #[yellow, yellow, yellow, blue, green, greem]
 
     def draw(self, num):
-        self.num = num
+        balls_removed = []
 
-        if num
-
+        if self.num > len(self.contents):
+            return self.contents
+        for i in range(num):
+            balls_selected = self.contents.pop(int(random() * len(self.contents)))
+            balls_removed.append(balls_selected)
+        return balls_removed
 
 
 hat1 = Hat(yellow=5, blue=4, green=3)
