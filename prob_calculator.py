@@ -43,5 +43,3 @@ def experiment(hat, expected_balls, num_balls_drawn, num_experiments):
             count += 1
 
     return count / num_experiments 
-
-hat1 = Hat(yellow=3, blue=1, green=2)
