@@ -8,7 +8,7 @@
 #For this project, you will write a program to determine the approximate probability 
 #of drawing certain balls randomly from a hat.
 import random 
-
+import copy
 class Hat:
     def __init__(self,**balls):
         self.contents = []
@@ -25,7 +25,23 @@ class Hat:
         for i in range(num):
             balls_selected = self.contents.pop(int(random() * len(self.contents)))
             balls_removed.append(balls_selected)
+        print(balls_removed)
         return balls_removed
 
+def experiment(hat, expected_balls, num_balls_drawn, num_experiments):
+    count = 0
+    for i in range(num_experiments):
+        copy_expected = copy.deepcopy(expected_balls)
+        copy_hat = copy.deepcopy(hat)
+        copy_balls_drawn = copy_hat.draw(num_balls_drawn)
 
-hat1 = Hat(yellow=5, blue=4, green=3)
+        for color in copy_balls_drawn:
+            if(color in copy_expected):
+                copy_expected[color] -= 1
+
+        if(all(x <= 0 for x in copy_expected.values())):
+            count += 1
+            
+    return count / num_experiments 
+
+hat1 = Hat(yellow=3, blue=1, green=2)
