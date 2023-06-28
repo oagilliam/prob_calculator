@@ -20,10 +20,10 @@ class Hat:
     def draw(self, num):
         balls_removed = []
 
-        if self.num > len(self.contents):
+        if num > len(self.contents):
             return self.contents
         for i in range(num):
-            balls_selected = self.contents.pop(int(random() * len(self.contents)))
+            balls_selected = self.contents.pop(int(random.choice(range(len(self.contents)))))
             balls_removed.append(balls_selected)
         print(balls_removed)
         return balls_removed
@@ -41,7 +41,7 @@ def experiment(hat, expected_balls, num_balls_drawn, num_experiments):
 
         if(all(x <= 0 for x in copy_expected.values())):
             count += 1
-            
+
     return count / num_experiments 
 
 hat1 = Hat(yellow=3, blue=1, green=2)
